@@ -1,0 +1,34 @@
+# LemboEvents — Apache configuration (XAMPP)
+Options -Indexes
+DirectoryIndex index.php
+
+# Never serve hidden files (.git, .env, .htaccess …)
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Never serve SQL dumps, logs, local config or markdown internals directly
+<FilesMatch "\.(sql|log|ini|bak|dist|lock)$">
+    Require all denied
+</FilesMatch>
+
+# Friendly 404 page. Adjust the path if the project folder in htdocs has another name.
+ErrorDocument 404 /LemboEvents/404.php
+ErrorDocument 403 /LemboEvents/403.php
+
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Cache static assets (files are versioned with ?v=filemtime)
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+</IfModule>

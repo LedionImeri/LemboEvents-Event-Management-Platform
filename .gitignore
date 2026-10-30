@@ -1,0 +1,21 @@
+# Private configuration — never commit real credentials or API keys
+config/local.php
+.env
+.env.*
+!.env.example
+
+# User uploads (keep folder structure only)
+assets/uploads/**/*
+!assets/uploads/.htaccess
+!assets/uploads/*/
+!assets/uploads/*/.gitkeep
+
+# Local tooling / OS / editor files
+.claude/
+.idea/
+.vscode/
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /organizer/
+Disallow: /attendee/
+Disallow: /api/
+Disallow: /checkout.php
+Disallow: /ticket.php
+Disallow: /booking.php

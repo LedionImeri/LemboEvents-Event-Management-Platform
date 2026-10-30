@@ -1,0 +1,2 @@
+# Internal code/configuration: never accessible from the browser
+Require all denied
